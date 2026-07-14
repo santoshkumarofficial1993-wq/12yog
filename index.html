@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ātma Yoga — Breathe. Flow. Transform.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Parisienne&display=swap" rel="stylesheet" />
+    <style>
+        /* ── reset & base ── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sand: #f5efe8;
+            --cream: #faf7f2;
+            --stone: #d4cdc4;
+            --clay: #b8a99a;
+            --deep: #3d352e;
+            --charcoal: #2c2723;
+            --gold: #c9a87c;
+            --gold-light: #e2d0b8;
+            --sage: #9baf9a;
+            --sage-light: #c6d4c5;
+            --rose: #e8d5cf;
+            --shadow: rgba(44, 39, 35, 0.08);
+            --shadow-hover: rgba(44, 39, 35, 0.16);
+            --radius: 24px;
+            --radius-sm: 12px;
+            --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--deep);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── typography ── */
+        .display-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .script-font {
+            font-family: 'Parisienne', cursive;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--clay);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title .highlight {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .section-sub {
+            font-size: 1.1rem;
+            color: var(--clay);
+            max-width: 540px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* ── buttons ── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            background: var(--deep);
+            color: #fff;
+            letter-spacing: 0.01em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold);
+            transform: translateX(-100%);
+            transition: var(--transition);
+            z-index: 0;
+            border-radius: 50px;
+        }
+
+        .btn:hover::after {
+            transform: translateX(0);
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--deep);
+            border: 1.5px solid var(--stone);
+        }
+
+        .btn-outline::after {
+            background: var(--deep);
+        }
+
+        .btn-outline:hover {
+            color: #fff;
+            border-color: var(--deep);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #fff;
+        }
+
+        .btn-gold::after {
+            background: var(--deep);
+        }
+
+        .btn-gold:hover {
+            color: #fff;
+        }
+
+        /* ── header / nav ── */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 0;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: rgba(250, 247, 242, 0.88);
+            backdrop-filter: blur(18px) saturate(1.2);
+            box-shadow: 0 4px 30px var(--shadow);
+            padding: 12px 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logo .dot {
+            color: var(--gold);
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .logo .sub {
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 400;
+            color: var(--clay);
+            font-family: 'Inter', sans-serif;
+            margin-left: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--deep);
+            transition: var(--transition);
+            position: relative;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links .btn-nav {
+            padding: 10px 28px;
+            border-radius: 50px;
+            background: var(--gold);
+            color: #fff;
+            font-weight: 500;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .nav-links .btn-nav::after {
+            display: none;
+        }
+
+        .nav-links .btn-nav:hover {
+            background: var(--deep);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(44, 39, 35, 0.2);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--deep);
+            transition: var(--transition);
+            border-radius: 4px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ── hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 120px 0 80px;
+            background: var(--sand);
+            overflow: hidden;
+        }
+
+        .hero-bg-shape {
+            position: absolute;
+            right: -10%;
+            top: -20%;
+            width: 70%;
+            height: 140%;
+            background: radial-gradient(ellipse at 70% 50%, rgba(201, 168, 124, 0.20) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-bg-shape-2 {
+            position: absolute;
+            left: -8%;
+            bottom: -30%;
+            width: 50%;
+            height: 80%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(155, 175, 154, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(201, 168, 124, 0.15);
+            padding: 6px 18px 6px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 0.02em;
+            margin-bottom: 24px;
+            border: 1px solid rgba(201, 168, 124, 0.2);
+        }
+
+        .hero-content .badge .pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: inline-block;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 .italic {
+            font-style: italic;
+            color: var(--gold);
+            position: relative;
+        }
+
+        .hero-content h1 .italic::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: rgba(201, 168, 124, 0.25);
+            border-radius: 4px;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--clay);
+            max-width: 460px;
+            font-weight: 300;
+            line-height: 1.9;
+            margin-bottom: 36px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .hero-actions .btn {
+            padding: 16px 42px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(212, 205, 196, 0.35);
+        }
+
+        .hero-stats .stat h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-stats .stat h3 .accent {
+            color: var(--gold);
+        }
+
+        .hero-stats .stat p {
+            font-size: 0.8rem;
+            color: var(--clay);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 2px;
+        }
+
+        /* hero image */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1/1.15;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--stone), var(--clay));
+            box-shadow: 0 40px 80px rgba(44, 39, 35, 0.12);
+        }
+
+        .hero-image-wrapper .placeholder-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #e8ddd0, #d4c9bc);
+            position: relative;
+        }
+
+        .hero-image-wrapper .placeholder-img svg {
+            width: 60%;
+            height: 60%;
+            opacity: 0.6;
+            color: var(--clay);
+        }
+
+        .hero-image-wrapper .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: var(--radius-sm);
+            padding: 16px 22px;
+            box-shadow: 0 12px 40px rgba(44, 39, 35, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: float 6s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .hero-image-wrapper .floating-card .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .hero-image-wrapper .floating-card:nth-child(2) {
+            top: 10%;
+            left: -8%;
+            animation-delay: 1s;
+        }
+
+        .hero-image-wrapper .floating-card:nth-child(3) {
+            bottom: 12%;
+            right: -10%;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .hero-image-wrapper .floating-card .icon-gold {
+            background: rgba(201, 168, 124, 0.2);
+            color: var(--gold);
+        }
+        .hero-image-wrapper .floating-card .icon-sage {
+            background: rgba(155, 175, 154, 0.2);
+            color: var(--sage);
+        }
+
+        /* ── decorative lines ── */
+        .deco-line {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 16px 0 20px;
+            border-radius: 4px;
+        }
+
+        /* ── section spacing ── */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header .section-sub {
+            max-width: 560px;
+        }
+
+        /* ── about ── */
+        .about {
+            background: var(--cream);
+            position: relative;
+        }
+
+        .about .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--stone), var(--clay));
+            aspect-ratio: 1/1.1;
+            box-shadow: 0 30px 60px var(--shadow);
+        }
+
+        .about-image .placeholder-img {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #e8ddd0, #d4c9bc);
+        }
+
+        .about-image .placeholder-img svg {
+            width: 50%;
+            height: 50%;
+            opacity: 0.5;
+            color: var(--clay);
+        }
+
+        .about-image .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--deep);
+            color: #fff;
+            padding: 24px 30px;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            box-shadow: 0 16px 40px rgba(44, 39, 35, 0.2);
+        }
+
+        .about-image .experience-badge h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .about-image .experience-badge p {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        .about-content .section-title {
+            margin-bottom: 16px;
+        }
+
+        .about-content .deco-line {
+            margin: 0 0 20px 0;
+        }
+
+        .about-content p {
+            color: var(--clay);
+            font-weight: 300;
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .about-features .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .about-features .feature-item .check {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(201, 168, 124, 0.15);
+            color: var(--gold);
+            font-size: 0.8rem;
+        }
+
+        /* ── classes ── */
+        .classes {
+            background: var(--sand);
+        }
+
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .class-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 36px 32px 32px;
+            box-shadow: 0 8px 32px var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .class-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--sage-light));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .class-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px var(--shadow-hover);
+        }
+
+        .class-card:hover::before {
+            opacity: 1;
+        }
+
+        .class-card .icon-wrap {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(201, 168, 124, 0.10);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .class-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .class-card .meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.8rem;
+            color: var(--clay);
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .class-card .meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .class-card p {
+            color: var(--clay);
+            font-weight: 300;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .class-card .btn-small {
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: transparent;
+            border: 1px solid var(--stone);
+            color: var(--deep);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .class-card .btn-small:hover {
+            background: var(--deep);
+            color: #fff;
+            border-color: var(--deep);
+        }
+
+        /* ── instructors ── */
+        .instructors {
+            background: var(--cream);
+        }
+
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+
+        .instructor-card {
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .instructor-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .instructor-card .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            background: linear-gradient(145deg, var(--stone), var(--clay));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--deep);
+            box-shadow: 0 12px 32px var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instructor-card .avatar .ring {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            opacity: 0.3;
+            transition: var(--transition);
+        }
+
+        .instructor-card:hover .avatar .ring {
+            opacity: 1;
+            inset: -6px;
+        }
+
+        .instructor-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .instructor-card .title {
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            margin-top: 2px;
+        }
+
+        .instructor-card .bio {
+            font-size: 0.9rem;
+            color: var(--clay);
+            font-weight: 300;
+            margin-top: 10px;
+            max-width: 240px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .instructor-card .socials {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .instructor-card .socials a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--sand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--clay);
+            transition: var(--transition);
+        }
+
+        .instructor-card .socials a:hover {
+            background: var(--gold);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ── testimonials ── */
+        .testimonials {
+            background: var(--sand);
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--stone), transparent);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 36px 32px;
+            border-radius: var(--radius);
+            box-shadow: 0 8px 32px var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px var(--shadow-hover);
+        }
+
+        .testimonial-card .stars {
+            color: var(--gold);
+            font-size: 1rem;
+            letter-spacing: 4px;
+            margin-bottom: 14px;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--deep);
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(212, 205, 196, 0.25);
+        }
+
+        .testimonial-card .author .initials {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--sand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--clay);
+        }
+
+        .testimonial-card .author .name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-card .author .role {
+            font-size: 0.8rem;
+            color: var(--clay);
+        }
+
+        /* ── membership ── */
+        .membership {
+            background: var(--cream);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 20px;
+        }
+
+        .pricing-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 40px 32px 36px;
+            box-shadow: 0 8px 32px var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px var(--shadow-hover);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--gold);
+            background: #fffdfa;
+        }
+
+        .pricing-card .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 18px;
+            border-radius: 50px;
+        }
+
+        .pricing-card .plan-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .pricing-card .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--deep);
+            margin: 12px 0 4px;
+            letter-spacing: -0.02em;
+        }
+
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--clay);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .pricing-card .description {
+            color: var(--clay);
+            font-weight: 300;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .pricing-card ul li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: var(--deep);
+            border-bottom: 1px solid rgba(212, 205, 196, 0.15);
+        }
+
+        .pricing-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card ul li .check {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 14px;
+        }
+
+        /* ── cta ── */
+        .cta {
+            background: var(--deep);
+            color: #fff;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            right: -20%;
+            top: -50%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(ellipse at 70% 50%, rgba(201, 168, 124, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content .section-label {
+            color: var(--gold-light);
+        }
+
+        .cta-content .section-title {
+            color: #fff;
+        }
+
+        .cta-content .section-title .highlight {
+            color: var(--gold);
+        }
+
+        .cta-content p {
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 300;
+            line-height: 1.9;
+            max-width: 440px;
+            margin: 16px 0 32px;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .cta-actions .btn {
+            background: var(--gold);
+            color: #fff;
+        }
+
+        .cta-actions .btn::after {
+            background: #fff;
+        }
+
+        .cta-actions .btn:hover {
+            color: var(--deep);
+        }
+
+        .cta-actions .btn-outline {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .cta-actions .btn-outline::after {
+            background: var(--gold);
+        }
+
+        .cta-actions .btn-outline:hover {
+            color: #fff;
+            border-color: var(--gold);
+        }
+
+        .cta-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .cta-stats .stat-item {
+            text-align: center;
+            padding: 28px 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+        }
+
+        .cta-stats .stat-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .cta-stats .stat-item p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 6px;
+        }
+
+        /* ── footer ── */
+        footer {
+            background: var(--charcoal);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 60px 0 32px;
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+        }
+
+        footer .brand .logo {
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        footer .brand .logo .sub {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        footer .brand p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 280px;
+        }
+
+        footer h5 {
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+            margin-bottom: 16px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer ul li a {
+            font-size: 0.85rem;
+            font-weight: 300;
+            transition: var(--transition);
+        }
+
+        footer ul li a:hover {
+            color: #fff;
+        }
+
+        footer .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        footer .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        footer .social-links a:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(201, 168, 124, 0.05);
+        }
+
+        footer .bottom {
+            grid-column: 1 / -1;
+            padding-top: 32px;
+            margin-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+        }
+
+        footer .bottom a {
+            transition: var(--transition);
+        }
+
+        footer .bottom a:hover {
+            color: #fff;
+        }
+
+        /* ── responsive ── */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-image-wrapper {
+                max-width: 420px;
+                margin: 0 auto;
+            }
+
+            .hero-image-wrapper .floating-card:nth-child(2) {
+                left: 0;
+            }
+            .hero-image-wrapper .floating-card:nth-child(3) {
+                right: 0;
+            }
+
+            .about .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-content .deco-line {
+                margin: 0 auto 20px;
+            }
+
+            .about-features {
+                justify-items: center;
+            }
+
+            .about-image {
+                max-width: 420px;
+                margin: 0 auto;
+            }
+
+            .about-image .experience-badge {
+                right: 10px;
+                bottom: 10px;
+                padding: 16px 22px;
+            }
+
+            .about-image .experience-badge h4 {
+                font-size: 1.6rem;
+            }
+
+            .cta .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cta-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cta-actions {
+                justify-content: center;
+            }
+
+            footer .container {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+
+            footer .brand p {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 320px;
+                height: 100vh;
+                background: var(--cream);
+                flex-direction: column;
+                padding: 80px 32px 40px;
+                gap: 24px;
+                transition: var(--transition);
+                box-shadow: -8px 0 40px var(--shadow);
+                align-items: flex-start;
+                overflow-y: auto;
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .nav-links .btn-nav {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero-stats {
+                gap: 24px;
+                flex-wrap: wrap;
+            }
+
+            .hero-image-wrapper .floating-card {
+                padding: 12px 16px;
+                font-size: 0.75rem;
+            }
+
+            .hero-image-wrapper .floating-card .icon {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cta-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .cta-stats .stat-item h3 {
+                font-size: 2rem;
+            }
+
+            footer .container {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            footer .bottom {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+
+            .hero-image-wrapper {
+                max-width: 340px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero-stats .stat h3 {
+                font-size: 1.4rem;
+            }
+
+            .hero-image-wrapper .floating-card {
+                display: none;
+            }
+
+            .about-image .experience-badge {
+                padding: 12px 18px;
+                right: 4px;
+                bottom: 4px;
+            }
+
+            .about-image .experience-badge h4 {
+                font-size: 1.2rem;
+            }
+
+            .about-image .experience-badge p {
+                font-size: 0.6rem;
+            }
+
+            .instructors-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+
+            .instructor-card .avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
+            }
+        }
+
+        /* ── scroll reveal (simple) ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── mobile overlay ── */
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(44, 39, 35, 0.3);
+            backdrop-filter: blur(4px);
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- ─── HEADER ─── -->
+    <header id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                Ātma<span class="dot">·</span>
+                <span class="sub">Yoga</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#instructors">Instructors</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact" class="btn-nav">Start Journey</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero" id="home">
+        <div class="hero-bg-shape"></div>
+        <div class="hero-bg-shape-2"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="pulse"></span>
+                    New Moon Flow — Join us Aug 12
+                </div>
+
+                <h1>
+                    Breathe. <br />
+                    <span class="italic">Flow.</span> Transform.
+                </h1>
+
+                <p>
+                    Awaken your inner stillness through mindful movement,
+                    breathwork, and ancient wisdom — crafted for modern souls.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#pricing" class="btn"><span>Start 7-Day Trial</span></a>
+                    <a href="#classes" class="btn btn-outline"><span>Explore Classes</span></a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>12<span class="accent">+</span></h3>
+                        <p>Expert Teachers</p>
+                    </div>
+                    <div class="stat">
+                        <h3>4.9<span class="accent">★</span></h3>
+                        <p>Student Rating</p>
+                    </div>
+                    <div class="stat">
+                        <h3>2k<span class="accent">+</span></h3>
+                        <p>Happy Yogis</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-wrapper">
+                    <div class="placeholder-img">
+                        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M50 10 C30 10 15 25 15 45 C15 65 30 80 50 80 C70 80 85 65 85 45 C85 25 70 10 50 10Z" />
+                            <path d="M50 30 L50 60 M35 45 L65 45 M35 55 L65 55" />
+                            <circle cx="50" cy="45" r="18" />
+                            <path d="M42 38 L58 38 L58 52 L42 52 Z" />
+                            <path d="M30 25 L40 35 M70 25 L60 35" />
+                        </svg>
+                    </div>
+
+                    <div class="floating-card" style="top:8%; left:-6%;">
+                        <span class="icon icon-gold">🧘</span>
+                        <span>Mindful Flow</span>
+                    </div>
+
+                    <div class="floating-card" style="bottom:10%; right:-8%;">
+                        <span class="icon icon-sage">🌿</span>
+                        <span>Holistic Balance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── ABOUT ─── -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-image">
+                <div class="placeholder-img">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="50" cy="40" r="18" />
+                        <path d="M20 80 L30 60 L50 70 L70 60 L80 80" />
+                        <path d="M30 60 L30 45 M70 60 L70 45" />
+                        <path d="M40 30 L60 30 L60 50 L40 50 Z" />
+                        <circle cx="50" cy="85" r="8" />
+                        <path d="M15 20 L35 20 M65 20 L85 20" />
+                        <path d="M30 10 L30 30 M70 10 L70 30" />
+                    </svg>
+                </div>
+                <div class="experience-badge">
+                    <h4>12+</h4>
+                    <p>Years of Wisdom</p>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <span class="section-label">About Ātma</span>
+                <h2 class="section-title">
+                    Where ancient <span class="highlight">tradition</span> meets modern life
+                </h2>
+                <div class="deco-line"></div>
+                <p>
+                    Ātma Yoga is more than a studio — it's a sanctuary for those seeking
+                    balance, strength, and inner peace. Our approach honors the roots of
+                    yoga while adapting to the rhythm of contemporary life.
+                </p>
+                <p>
+                    Every class is an invitation to listen inward, move with intention,
+                    and connect with a community that uplifts.
+                </p>
+
+                <div class="about-features">
+                    <div class="feature-item">
+                        <span class="check">✓</span> Expert-led sessions
+                    </div>
+                    <div class="feature-item">
+                        <span class="check">✓</span> All levels welcome
+                    </div>
+                    <div class="feature-item">
+                        <span class="check">✓</span> Mindful sequencing
+                    </div>
+                    <div class="feature-item">
+                        <span class="check">✓</span> Community centered
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CLASSES ─── -->
+    <section class="classes" id="classes">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Our Offerings</span>
+                <h2 class="section-title">Find your <span class="highlight">flow</span></h2>
+                <p class="section-sub">
+                    From gentle stillness to dynamic power — a class for every body and every stage.
+                </p>
+            </div>
+
+            <div class="classes-grid">
+                <div class="class-card reveal">
+                    <div class="icon-wrap">🌅</div>
+                    <h3>Morning Hatha</h3>
+                    <div class="meta">
+                        <span>🕊️ All Levels</span>
+                        <span>⏱ 60 min</span>
+                    </div>
+                    <p>Slow, intentional postures paired with breath to awaken the body and calm the mind.</p>
+                    <button class="btn-small">Learn More →</button>
+                </div>
+
+                <div class="class-card reveal">
+                    <div class="icon-wrap">🔥</div>
+                    <h3>Vinyasa Flow</h3>
+                    <div class="meta">
+                        <span>⚡ Intermediate</span>
+                        <span>⏱ 75 min</span>
+                    </div>
+                    <p>Dynamic sequence linking movement and breath — build heat, strength, and fluidity.</p>
+                    <button class="btn-small">Learn More →</button>
+                </div>
+
+                <div class="class-card reveal">
+                    <div class="icon-wrap">🌙</div>
+                    <h3>Restorative Yin</h3>
+                    <div class="meta">
+                        <span>🕯️ All Levels</span>
+                        <span>⏱ 60 min</span>
+                    </div>
+                    <p>Deep, passive holds to release tension, soothe the nervous system, and restore.</p>
+                    <button class="btn-small">Learn More →</button>
+                </div>
+
+                <div class="class-card reveal">
+                    <div class="icon-wrap">🧠</div>
+                    <h3>Meditation &amp; Breath</h3>
+                    <div class="meta">
+                        <span>🧘 Beginner</span>
+                        <span>⏱ 45 min</span>
+                    </div>
+                    <p>Guided stillness and pranayama techniques to cultivate clarity and inner peace.</p>
+                    <button class="btn-small">Learn More →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── INSTRUCTORS ─── -->
+    <section class="instructors" id="instructors">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Meet the guides</span>
+                <h2 class="section-title">Your <span class="highlight">teachers</span></h2>
+                <p class="section-sub">
+                    Passionate, experienced, and deeply committed to your growth.
+                </p>
+            </div>
+
+            <div class="instructors-grid">
+                <div class="instructor-card reveal">
+                    <div class="avatar">
+                        <span>🌿</span>
+                        <div class="ring"></div>
+                    </div>
+                    <h4>Maya Sharma</h4>
+                    <div class="title">Founder &amp; Lead Teacher</div>
+                    <p class="bio">15 years of practice, E-RYT 500, specializing in vinyasa and philosophy.</p>
+                    <div class="socials">
+                        <a href="#">📷</a>
+                        <a href="#">🐦</a>
+                        <a href="#">💬</a>
+                    </div>
+                </div>
+
+                <div class="instructor-card reveal">
+                    <div class="avatar">
+                        <span>🕊️</span>
+                        <div class="ring"></div>
+                    </div>
+                    <h4>David Chen</h4>
+                    <div class="title">Yin &amp; Meditation</div>
+                    <p class="bio">Mindfulness coach and yin specialist with a background in psychology.</p>
+                    <div class="socials">
+                        <a href="#">📷</a>
+                        <a href="#">🐦</a>
+                        <a href="#">💬</a>
+                    </div>
+                </div>
+
+                <div class="instructor-card reveal">
+                    <div class="avatar">
+                        <span>☀️</span>
+                        <div class="ring"></div>
+                    </div>
+                    <h4>Priya Kapoor</h4>
+                    <div class="title">Hatha &amp; Alignment</div>
+                    <p class="bio">Detail-oriented teacher with a focus on anatomical precision and safety.</p>
+                    <div class="socials">
+                        <a href="#">📷</a>
+                        <a href="#">🐦</a>
+                        <a href="#">💬</a>
+                    </div>
+                </div>
+
+                <div class="instructor-card reveal">
+                    <div class="avatar">
+                        <span>🌊</span>
+                        <div class="ring"></div>
+                    </div>
+                    <h4>James Okafor</h4>
+                    <div class="title">Vinyasa &amp; Power</div>
+                    <p class="bio">Energetic teacher blending strength, mobility, and joyful movement.</p>
+                    <div class="socials">
+                        <a href="#">📷</a>
+                        <a href="#">🐦</a>
+                        <a href="#">💬</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── TESTIMONIALS ─── -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">What they say</span>
+                <h2 class="section-title">Voices of the <span class="highlight">community</span></h2>
+                <p class="section-sub">Real stories from real people who found their practice with us.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>
+                        "Ātma has completely transformed my relationship with my body and mind.
+                        The teachers are exceptional, and the community is so welcoming."
+                    </blockquote>
+                    <div class="author">
+                        <div class="initials">AK</div>
+                        <div>
+                            <div class="name">Aisha Kumar</div>
+                            <div class="role">Practitioner, 2 years</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>
+                        "I came for the physical practice and stayed for the peace. Every session
+                        leaves me grounded and centered — a true gift."
+                    </blockquote>
+                    <div class="author">
+                        <div class="initials">MR</div>
+                        <div>
+                            <div class="name">Marcus Reed</div>
+                            <div class="role">Yin regular, 1 year</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>
+                        "The most authentic yoga experience I've ever had. No gimmicks, just
+                        profound teachings and a space that feels like home."
+                    </blockquote>
+                    <div class="author">
+                        <div class="initials">CL</div>
+                        <div>
+                            <div class="name">Clara Liu</div>
+                            <div class="role">Vinyasa enthusiast</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── MEMBERSHIP / PRICING ─── -->
+    <section class="membership" id="pricing">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Membership</span>
+                <h2 class="section-title">Invest in your <span class="highlight">well-being</span></h2>
+                <p class="section-sub">Flexible plans designed to support your journey — start with a free trial.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card reveal">
+                    <div class="plan-name">Drop-In</div>
+                    <div class="price">$22 <span>/class</span></div>
+                    <p class="description">Perfect for occasional practice</p>
+                    <ul>
+                        <li><span class="check">✓</span> Access to any class</li>
+                        <li><span class="check">✓</span> Mat &amp; props included</li>
+                        <li><span class="check">✓</span> No commitment</li>
+                    </ul>
+                    <button class="btn btn-outline"><span>Book Now</span></button>
+                </div>
+
+                <div class="pricing-card popular reveal">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-name">Unlimited</div>
+                    <div class="price">$108 <span>/mo</span></div>
+                    <p class="description">Unlimited classes + community events</p>
+                    <ul>
+                        <li><span class="check">✓</span> All classes, unlimited</li>
+                        <li><span class="check">✓</span> 2 guest passes / mo</li>
+                        <li><span class="check">✓</span> Workshop discounts</li>
+                        <li><span class="check">✓</span> Free parking</li>
+                    </ul>
+                    <button class="btn"><span>Start 7-Day Trial</span></button>
+                </div>
+
+                <div class="pricing-card reveal">
+                    <div class="plan-name">Class Pack</div>
+                    <div class="price">$180 <span>/10 classes</span></div>
+                    <p class="description">Best value for regular students</p>
+                    <ul>
+                        <li><span class="check">✓</span> 10 classes, any time</li>
+                        <li><span class="check">✓</span> Valid 3 months</li>
+                        <li><span class="check">✓</span> Shareable with friends</li>
+                    </ul>
+                    <button class="btn btn-outline"><span>Get Pack</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CTA ─── -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <span class="section-label">Begin your journey</span>
+                <h2 class="section-title">
+                    Ready to <span class="highlight">breathe</span> new life?
+                </h2>
+                <p>
+                    Join our community and experience the transformative power of yoga.
+                    Your first class is on us.
+                </p>
+                <div class="cta-actions">
+                    <a href="#" class="btn"><span>Claim Free Class</span></a>
+                    <a href="#" class="btn btn-outline"><span>Learn More</span></a>
+                </div>
+            </div>
+
+            <div class="cta-stats">
+                <div class="stat-item">
+                    <h3>2k+</h3>
+                    <p>Students taught</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.9★</h3>
+                    <p>Average rating</p>
+                </div>
+                <div class="stat-item">
+                    <h3>28</h3>
+                    <p>Weekly classes</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Inclusive space</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="container">
+            <div class="brand">
+                <a href="#" class="logo">
+                    Ātma<span class="dot">·</span>
+                    <span class="sub">Yoga</span>
+                </a>
+                <p>
+                    A sanctuary for mindful movement, authentic connection,
+                    and lasting transformation.
+                </p>
+                <div class="social-links">
+                    <a href="#">📷</a>
+                    <a href="#">🐦</a>
+                    <a href="#">💬</a>
+                    <a href="#">▶</a>
+                </div>
+            </div>
+
+            <div>
+                <h5>Explore</h5>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#classes">Classes</a></li>
+                    <li><a href="#instructors">Teachers</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Studio Policy</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5>Connect</h5>
+                <ul>
+                    <li><a href="#">📍 108 Peace St, NY</a></li>
+                    <li><a href="#">📞 (555) 222-3333</a></li>
+                    <li><a href="#">✉️ hello@atmayoga.com</a></li>
+                    <li><a href="#">🕊️ @atmayoga</a></li>
+                </ul>
+            </div>
+
+            <div class="bottom">
+                <span>&copy; 2026 Ātma Yoga. All rights reserved.</span>
+                <span>
+                    <a href="#">Privacy</a> · <a href="#">Terms</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ─── JavaScript ─── -->
+    <script>
+        // ── hamburger ──
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const overlay = document.getElementById('navOverlay');
+
+        function toggleMenu() {
+            const isOpen = navLinks.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // close on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('open')) toggleMenu();
+            });
+        });
+
+        // ── header scroll ──
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const current = window.scrollY;
+            if (current > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            lastScroll = current;
+        });
+
+        // ── reveal on scroll ──
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // ── smooth anchor scroll ──
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = header.offsetHeight + 12;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
